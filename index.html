@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+5hb5gTXUXN1TL6HyQ0GzthFh4IRHLZmRj0jP8j" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #dfe6e9;
+            background: linear-gradient(135deg, #2d3436, #1e272e);
+            scroll-behavior: smooth;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(45, 52, 54, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #74b9ff;
+            animation: marquee 5s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #dfe6e9;
+            font-weight: 500;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        nav a:hover {
+            color: #0984e3;
+            transform: scale(1.1);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(45, 52, 54, 0.8), rgba(45, 52, 54, 0.8)), url('https://via.placeholder.com/1920x1080') center/cover;
+            color: white;
+            text-align: left;
+            padding: 20px;
+            position: relative;
+        }
+
+        .hero-image {
+            width: 300px;
+            height: 300px;
+            margin-right: 40px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hero > div {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #00cec9;
+            animation: fadeInText 1.5s ease-in-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInText 1.5s ease-in-out;
+        }
+
+        .hero a {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #0984e3;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+            animation: fadeInText 1.5s ease-in-out;
+        }
+
+        .hero a:hover {
+            background: #74b9ff;
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .about, .projects, .contact {
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInSection 1.5s ease-in-out forwards;
+        }
+
+        .about {
+            animation-delay: 0.3s;
+        }
+
+        .projects {
+            animation-delay: 0.6s;
+        }
+
+        .contact {
+            animation-delay: 0.9s;
+        }
+
+        @keyframes fadeInSection {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .about h2, .projects h2, .contact h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #74b9ff;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #dfe6e9;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .project {
+            background: #2d3436;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #dfe6e9;
+        }
+
+        .project:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .project img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project h3 {
+            padding: 15px;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .project p {
+            padding: 0 15px 15px;
+            color: #b2bec3;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .contact a {
+            color: #74b9ff;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #1e272e;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #74b9ff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0984e3;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .back-to-top:hover {
+            background: #74b9ff;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h1>-Ahtisham Mehmood-</h1>
+        </div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div>
+            <img src="c:\Users\Junaid Umer\Downloads\09ba8a19-3c2e-48cc-9246-295d1c1e0e26-removebg-preview-removebg-preview.png" alt="Profile Image" position="absolute">
+            <div>
+                <h2>Front-End Developer</h2>
+                <p>Crafting beautiful and user-friendly web experiences</p>
+                <a href="#projects">View My Work</a>
+            </div>
+        </div>
+    </div>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I am a front-end developer with a passion for building visually stunning and functional websites. My focus is on creating engaging user experiences through clean, efficient, and modern design practices.</p>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project">
+                    <img src="https://via.placeholder.com/300x200" alt="Project 1">
+                    <h3>Project One</h3>
+                    <p>Responsive task management app with seamless UI/UX.</p>
+                </div>
+                <div class="project">
+                    <img src="https://via.placeholder.com/300x200" alt="Project 2">
+                    <h3>Project Two</h3>
+                    <p>Portfolio site showcasing a modern and interactive design.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>Feel free to reach out to discuss projects or collaborations.</p>
+            <a href="mailto:ahtisham@example.com">ahtisham@example.com</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Ahtisham Mehmood. All rights reserved. <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <div class="back-to-top" onclick="scrollToTop()">&uarr;</div>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
